@@ -66,14 +66,43 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* ── Posh Bubbles brand palette ──────────────────────────────────── */
-  --color-pb-background:          var(--pb-background);
+  --color-pb-background:           var(--pb-background);
   --color-pb-background-secondary: var(--pb-background-secondary);
-  --color-pb-card:                var(--pb-card);
-  --color-pb-text-primary:        var(--pb-text-primary);
-  --color-pb-text-secondary:      var(--pb-text-secondary);
-  --color-pb-ruby:                var(--pb-ruby);
-  --color-pb-burgundy:            var(--pb-burgundy);
-  --color-pb-champagne-gold:      var(--pb-champagne-gold);
+  --color-pb-card:                 var(--pb-card);
+  --color-pb-text-primary:         var(--pb-text-primary);
+  --color-pb-text-secondary:       var(--pb-text-secondary);
+  --color-pb-ruby:                 var(--pb-ruby);
+  --color-pb-burgundy:             var(--pb-burgundy);
+  --color-pb-champagne-gold:       var(--pb-champagne-gold);
+
+  /* ── Rounded corners — full scale ────────────────────────────────── */
+  /* rounded-none · rounded-xs · rounded-sm · rounded-md · rounded-lg  */
+  /* rounded-xl  · rounded-2xl · rounded-3xl · rounded-full            */
+  --radius-none: 0px;
+  --radius-xs:   0.125rem;   /*  2px — subtle, almost square */
+  /* sm / md / lg / xl already defined above */
+  --radius-2xl:  1rem;       /* 16px — cards, modals */
+  --radius-3xl:  1.5rem;     /* 24px — hero sections, large surfaces */
+  --radius-full: 9999px;     /* pill / circular */
+
+  /* ── Soft shadows — warm-toned Tailwind utilities ────────────────── */
+  /* shadow-card · shadow-soft · shadow-lifted · shadow-float           */
+  /* shadow-inner-soft                                                  */
+  /* Tinted with --pb-text-primary (#34261D = rgb 52 38 29)            */
+  --shadow-card:       0 2px 8px 0 rgb(52 38 29 / 0.06), 0 1px 2px 0 rgb(52 38 29 / 0.04);
+  --shadow-soft:       0 4px 16px 0 rgb(52 38 29 / 0.08), 0 2px 4px 0 rgb(52 38 29 / 0.05);
+  --shadow-lifted:     0 8px 24px 0 rgb(52 38 29 / 0.10), 0 4px 8px 0 rgb(52 38 29 / 0.06);
+  --shadow-float:      0 16px 40px 0 rgb(52 38 29 / 0.12), 0 6px 12px 0 rgb(52 38 29 / 0.07);
+  --shadow-inner-soft: inset 0 1px 4px 0 rgb(52 38 29 / 0.06);
+
+  /* ── Spacing scale — semantic tokens ────────────────────────────── */
+  /* Exposed as Tailwind utilities: p-content, p-card, p-gutter,       */
+  /* p-section, p-page  (and m-*, gap-*, etc.)                         */
+  --spacing-content: 1rem;    /* 16px — inner component padding */
+  --spacing-card:    1.25rem; /* 20px — card padding */
+  --spacing-gutter:  1.5rem;  /* 24px — horizontal page gutter */
+  --spacing-section: 5rem;    /* 80px — section vertical padding */
+  --spacing-page:    6rem;    /* 96px — page-level top/bottom margin */
 }
 
 /* ── LIGHT MODE ────────────────────────────────────────────────────── */
@@ -139,6 +168,20 @@
   --pb-ruby:                 #9C0F46;
   --pb-burgundy:             #70002A;
   --pb-champagne-gold:       #D4AF37;
+
+  /* ── Soft shadows — CSS vars for direct use outside Tailwind ─────── */
+  --pb-shadow-card:       0 2px 8px 0 rgb(52 38 29 / 0.06), 0 1px 2px 0 rgb(52 38 29 / 0.04);
+  --pb-shadow-soft:       0 4px 16px 0 rgb(52 38 29 / 0.08), 0 2px 4px 0 rgb(52 38 29 / 0.05);
+  --pb-shadow-lifted:     0 8px 24px 0 rgb(52 38 29 / 0.10), 0 4px 8px 0 rgb(52 38 29 / 0.06);
+  --pb-shadow-float:      0 16px 40px 0 rgb(52 38 29 / 0.12), 0 6px 12px 0 rgb(52 38 29 / 0.07);
+  --pb-shadow-inner-soft: inset 0 1px 4px 0 rgb(52 38 29 / 0.06);
+
+  /* ── Spacing — CSS vars for direct use outside Tailwind ──────────── */
+  --pb-spacing-content: 1rem;
+  --pb-spacing-card:    1.25rem;
+  --pb-spacing-gutter:  1.5rem;
+  --pb-spacing-section: 5rem;
+  --pb-spacing-page:    6rem;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
