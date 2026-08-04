@@ -64,6 +64,16 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── Posh Bubbles brand palette ──────────────────────────────────── */
+  --color-pb-background:          var(--pb-background);
+  --color-pb-background-secondary: var(--pb-background-secondary);
+  --color-pb-card:                var(--pb-card);
+  --color-pb-text-primary:        var(--pb-text-primary);
+  --color-pb-text-secondary:      var(--pb-text-secondary);
+  --color-pb-ruby:                var(--pb-ruby);
+  --color-pb-burgundy:            var(--pb-burgundy);
+  --color-pb-champagne-gold:      var(--pb-champagne-gold);
 }
 
 /* ── LIGHT MODE ────────────────────────────────────────────────────── */
@@ -119,6 +129,16 @@
   --chart-3:             50 30% 58%;
   --chart-4:             200 28% 55%;
   --chart-5:             260 28% 58%;
+
+  /* ── Posh Bubbles brand palette ──────────────────────────────────── */
+  --pb-background:           #F8F3EC;
+  --pb-background-secondary: #EFE3D3;
+  --pb-card:                 #FFFDF9;
+  --pb-text-primary:         #34261D;
+  --pb-text-secondary:       #4A3A2A;
+  --pb-ruby:                 #9C0F46;
+  --pb-burgundy:             #70002A;
+  --pb-champagne-gold:       #D4AF37;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
