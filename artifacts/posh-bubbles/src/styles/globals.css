@@ -1,0 +1,21 @@
+/* ─── Posh Bubbles — Global Style Overrides ───────────────────────────────
+   Import this file for any global styles that go beyond index.css tokens.
+   Keep component-specific styles co-located with their components.
+──────────────────────────────────────────────────────────────────────────── */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: hsl(var(--primary) / 0.20);
+  color: hsl(var(--foreground));
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}

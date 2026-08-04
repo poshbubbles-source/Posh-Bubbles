@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Posh Bubbles"
+description = "Posh Bubbles is a premium ecommerce storefront scaffold for a luxury bath and beauty brand. It provides a scalable React + Vite + TypeScript + Tailwind CSS project structure ready for product, collection, cart, and checkout development."
+version = "1.0.0"
+id = "artifacts/posh-bubbles"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19591
+
+[services.development]
+run = "pnpm --filter @workspace/posh-bubbles run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/posh-bubbles", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/posh-bubbles/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19591"
+BASE_PATH = "/"
