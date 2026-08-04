@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -76,19 +78,13 @@
   --color-pb-champagne-gold:       var(--pb-champagne-gold);
 
   /* ── Rounded corners — full scale ────────────────────────────────── */
-  /* rounded-none · rounded-xs · rounded-sm · rounded-md · rounded-lg  */
-  /* rounded-xl  · rounded-2xl · rounded-3xl · rounded-full            */
   --radius-none: 0px;
-  --radius-xs:   0.125rem;   /*  2px — subtle, almost square */
-  /* sm / md / lg / xl already defined above */
-  --radius-2xl:  1rem;       /* 16px — cards, modals */
-  --radius-3xl:  1.5rem;     /* 24px — hero sections, large surfaces */
-  --radius-full: 9999px;     /* pill / circular */
+  --radius-xs:   0.125rem;
+  --radius-2xl:  1rem;
+  --radius-3xl:  1.5rem;
+  --radius-full: 9999px;
 
   /* ── Soft shadows — warm-toned Tailwind utilities ────────────────── */
-  /* shadow-card · shadow-soft · shadow-lifted · shadow-float           */
-  /* shadow-inner-soft                                                  */
-  /* Tinted with --pb-text-primary (#34261D = rgb 52 38 29)            */
   --shadow-card:       0 2px 8px 0 rgb(52 38 29 / 0.06), 0 1px 2px 0 rgb(52 38 29 / 0.04);
   --shadow-soft:       0 4px 16px 0 rgb(52 38 29 / 0.08), 0 2px 4px 0 rgb(52 38 29 / 0.05);
   --shadow-lifted:     0 8px 24px 0 rgb(52 38 29 / 0.10), 0 4px 8px 0 rgb(52 38 29 / 0.06);
@@ -96,13 +92,11 @@
   --shadow-inner-soft: inset 0 1px 4px 0 rgb(52 38 29 / 0.06);
 
   /* ── Spacing scale — semantic tokens ────────────────────────────── */
-  /* Exposed as Tailwind utilities: p-content, p-card, p-gutter,       */
-  /* p-section, p-page  (and m-*, gap-*, etc.)                         */
-  --spacing-content: 1rem;    /* 16px — inner component padding */
-  --spacing-card:    1.25rem; /* 20px — card padding */
-  --spacing-gutter:  1.5rem;  /* 24px — horizontal page gutter */
-  --spacing-section: 5rem;    /* 80px — section vertical padding */
-  --spacing-page:    6rem;    /* 96px — page-level top/bottom margin */
+  --spacing-content: 1rem;
+  --spacing-card:    1.25rem;
+  --spacing-gutter:  1.5rem;
+  --spacing-section: 5rem;
+  --spacing-page:    6rem;
 }
 
 /* ── LIGHT MODE ────────────────────────────────────────────────────── */
@@ -183,9 +177,9 @@
   --pb-spacing-section: 5rem;
   --pb-spacing-page:    6rem;
 
-  --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: Georgia, serif;
-  --app-font-mono: Menlo, monospace;
+  --app-font-sans:  'Inter', sans-serif;
+  --app-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --app-font-mono:  Menlo, monospace;
   --radius: 0.5rem;
 
   --shadow-2xs: 0px 1px 2px 0px hsl(20 12% 10% / 0.05);
@@ -277,7 +271,15 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-pb-background text-pb-text-primary;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--app-font-serif);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    color: var(--pb-text-primary);
   }
 }
 
@@ -348,5 +350,68 @@
   .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  /* ── Posh Bubbles decorative utilities ──────────────────────────── */
+
+  /* Gold ornamental divider */
+  .pb-gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block: 0.5rem;
+  }
+  .pb-gold-divider::before,
+  .pb-gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--pb-champagne-gold), transparent);
+  }
+  .pb-gold-divider-icon {
+    color: var(--pb-champagne-gold);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+  }
+
+  /* Lotus background watermark — use on light sections */
+  .pb-lotus-watermark {
+    position: relative;
+    overflow: hidden;
+  }
+  .pb-lotus-watermark::after {
+    content: '';
+    position: absolute;
+    right: -4%;
+    bottom: -5%;
+    width: 320px;
+    height: 480px;
+    background-image: url('/images/lotus.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.10;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Lotus left watermark variant */
+  .pb-lotus-watermark-left::after {
+    right: auto;
+    left: -4%;
+    transform: scaleX(-1);
+  }
+
+  /* Lotus centered (for testimonials / hero) */
+  .pb-lotus-watermark-center::after {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10%;
+    opacity: 0.06;
+    width: 400px;
+    height: 600px;
   }
 }

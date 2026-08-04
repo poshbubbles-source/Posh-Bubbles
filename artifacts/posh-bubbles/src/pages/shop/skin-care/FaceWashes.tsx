@@ -1,10 +1,18 @@
-/** Placeholder — Face Washes subcategory page (Skin Care). */
+/** Face Washes subcategory page (Skin Care). */
 export default function FaceWashes() {
   return (
-    <main aria-label="Face Washes">
-      <h1>Face Washes</h1>
-      <p>Placeholder — Face Washes product listing goes here.</p>
-      <a href="/shop/skin-care">← Back to Skin Care</a>
+    <main className="min-h-screen bg-pb-background">
+      <div className="pb-page-banner">
+        <div className="relative z-10 max-w-2xl mx-auto px-6">
+          <h1 className="font-serif text-4xl sm:text-6xl font-light text-white tracking-wide">Face Washes</h1>
+          <div className="mt-4 mx-auto w-16 h-px bg-pb-champagne-gold/60" />
+          <p className="mt-4 text-white/70 font-sans text-base">Placeholder — Face Washes product listing goes here.</p>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-12 text-center">
+        <p className="font-serif text-xl text-pb-text-secondary italic mb-6">Products coming soon.</p>
+        <a href="/shop/skin-care" className="pb-back-link justify-center">← Back to Skin Care</a>
+      </div>
     </main>
   );
 }

@@ -1,11 +1,23 @@
-/** Placeholder — replace with the real Bundles page. */
+/** Bundles page — curated gift sets. */
 export default function Bundles() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Bundles</h1>
-      <p className="mt-3 text-muted-foreground">
-        Placeholder — Bundles page content goes here.
-      </p>
-    </section>
+    <main className="min-h-screen bg-pb-background">
+      <div className="pb-page-banner">
+        <div className="relative z-10 max-w-2xl mx-auto px-6">
+          <h1 className="font-serif text-4xl sm:text-6xl font-light text-white tracking-wide">
+            Bundles
+          </h1>
+          <div className="mt-4 mx-auto w-16 h-px bg-pb-champagne-gold/60" />
+          <p className="mt-4 text-white/70 font-sans text-base sm:text-lg">
+            Placeholder — Bundles page content goes here.
+          </p>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 text-center">
+        <p className="font-serif text-xl text-pb-text-secondary italic">
+          Gift sets and bundles coming soon.
+        </p>
+      </div>
+    </main>
   );
 }

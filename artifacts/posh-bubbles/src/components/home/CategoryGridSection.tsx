@@ -1,8 +1,7 @@
 /**
  * CategoryGridSection
  *
- * Home-page section displaying the full product category grid. Placeholder
- * only — no styling, animations, or business logic.
+ * Home-page section displaying the full product category grid. Placeholder content only.
  * Structure inspired by premium skincare brand category-browse layouts:
  *   - Section heading + supporting descriptor
  *   - Grid of CategoryCard components, one per product category
@@ -71,28 +70,48 @@ const PLACEHOLDER_CATEGORIES: Category[] = [
 
 export default function CategoryGridSection() {
   return (
-    <section aria-labelledby="categories-heading">
-      {/* Section heading */}
-      <header>
-        <h2 id="categories-heading">Placeholder — Shop by Category</h2>
-        <p>
-          Placeholder — a short descriptor inviting the visitor to explore the
-          full range of product categories.
-        </p>
-      </header>
+    <section
+      aria-labelledby="categories-heading"
+      className="bg-pb-background py-16 sm:py-24"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
-      {/* Category grid */}
-      <ol aria-label="Product categories">
-        {PLACEHOLDER_CATEGORIES.map((category) => (
-          <li key={category.id}>
-            <CategoryCard
-              name={category.name}
-              slug={category.slug}
-              description={category.description}
-            />
-          </li>
-        ))}
-      </ol>
+        {/* Gold ornamental divider */}
+        <div className="pb-gold-divider mb-10" aria-hidden="true">
+          <span className="pb-gold-divider-icon text-pb-champagne-gold">✦</span>
+        </div>
+
+        {/* Section heading */}
+        <header className="text-center mb-12 sm:mb-16">
+          <h2
+            id="categories-heading"
+            className="font-serif text-4xl sm:text-5xl font-light text-pb-text-primary"
+          >
+            Placeholder — Shop by Category
+          </h2>
+          <p className="mt-4 font-sans text-pb-text-secondary text-base sm:text-lg max-w-xl mx-auto">
+            Placeholder — a short descriptor inviting the visitor to explore the
+            full range of product categories.
+          </p>
+        </header>
+
+        {/* Category grid */}
+        <ol
+          aria-label="Product categories"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
+        >
+          {PLACEHOLDER_CATEGORIES.map((category) => (
+            <li key={category.id}>
+              <CategoryCard
+                name={category.name}
+                slug={category.slug}
+                description={category.description}
+              />
+            </li>
+          ))}
+        </ol>
+
+      </div>
     </section>
   );
 }
