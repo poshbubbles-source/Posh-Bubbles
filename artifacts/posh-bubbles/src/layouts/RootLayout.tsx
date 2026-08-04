@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 /**
  * RootLayout
  *
  * Shared layout wrapper for all routes.
  * Renders the Navbar, a <main> content area with the route outlet,
- * and a placeholder footer.
+ * and the Footer.
  */
 export default function RootLayout() {
   return (
@@ -17,11 +18,7 @@ export default function RootLayout() {
         <Outlet />
       </main>
 
-      <footer className="border-t border-border px-6 py-6">
-        <p className="text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Posh Bubbles. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
