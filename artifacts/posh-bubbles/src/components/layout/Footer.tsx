@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
  * Footer
  *
  * Site footer with brand identity, navigation, and social links.
- * Ruby background with champagne gold accents and lotus watermark.
+ * Ruby background with champagne gold accents and logo watermark.
  */
 export default function Footer() {
   const year = new Date().getFullYear();
