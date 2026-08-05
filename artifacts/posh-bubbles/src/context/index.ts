@@ -1,5 +1,12 @@
 // ─── Posh Bubbles — React Contexts ──────────────────────────────────────────
-// Placeholder file. Export context providers and hooks from this barrel
-// as the project grows (e.g. CartContext, WishlistContext, ThemeContext).
 
-export {};
+export {
+  CartProvider,
+  useCart,
+  resolveCoupon,
+  computeTotals,
+  COUPON_REGISTRY,
+  FREE_SHIPPING_THRESHOLD_CENTS,
+  STANDARD_SHIPPING_CENTS,
+} from './CartContext';
+export type { CartItem, Coupon, CouponType, CartTotals } from './CartContext';

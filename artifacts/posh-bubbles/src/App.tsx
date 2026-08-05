@@ -4,9 +4,11 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
 import RootLayout from '@/layouts/RootLayout';
+import { CartProvider } from '@/context/CartContext';
 
 // Top-level pages
 import Home from '@/pages/Home';
+import Cart from '@/pages/Cart';
 import Shop from '@/pages/Shop';
 import Featured from '@/pages/Featured';
 import Bundles from '@/pages/Bundles';
@@ -72,6 +74,7 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <CartProvider>
       <TooltipProvider>
         <BrowserRouter basename={basename}>
           <Routes>
@@ -83,6 +86,7 @@ export default function App() {
               <Route path="about" element={<About />} />
               <Route path="faq" element={<FAQ />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="cart" element={<Cart />} />
 
               {/* ── Skin Care ───────────────────────────────────────── */}
               <Route path="shop/skin-care" element={<SkinCare />} />
@@ -137,6 +141,7 @@ export default function App() {
         </BrowserRouter>
         <Toaster />
       </TooltipProvider>
+      </CartProvider>
     </QueryClientProvider>
   );
 }
