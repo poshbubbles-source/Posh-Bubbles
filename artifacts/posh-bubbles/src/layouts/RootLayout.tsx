@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
 
 /**
  * RootLayout
@@ -19,6 +20,7 @@ export default function RootLayout() {
       </main>
 
       <Footer />
+      <WhatsAppFloatingButton />
     </div>
   );
 }

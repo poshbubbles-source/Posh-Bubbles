@@ -9,7 +9,9 @@
  * All colours are Posh Bubbles design-system tokens.
  */
 
+import { useState } from 'react';
 import { Heart, ShoppingCart, Zap, Star } from 'lucide-react';
+import BuyNowModal from './BuyNowModal';
 
 export interface ProductCardProps {
   /** Path to the product image (relative to /public) */
@@ -72,7 +74,17 @@ export default function ProductCard({
   isAvailable  = true,
   badge,
 }: ProductCardProps) {
+  const [buyNowOpen, setBuyNowOpen] = useState(false);
+
   return (
+    <>
+    {buyNowOpen && (
+      <BuyNowModal
+        productName={name}
+        price={price}
+        onClose={() => setBuyNowOpen(false)}
+      />
+    )}
     <article
       aria-label={name}
       className={[
@@ -226,6 +238,7 @@ export default function ProductCard({
             type="button"
             aria-label={`Buy ${name} now`}
             disabled={!isAvailable}
+            onClick={() => setBuyNowOpen(true)}
             className={[
               'w-full inline-flex items-center justify-center gap-2',
               'px-4 py-2.5 rounded-lg',
@@ -243,5 +256,6 @@ export default function ProductCard({
         </div>
       </div>
     </article>
+    </>
   );
 }
