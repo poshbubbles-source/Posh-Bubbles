@@ -1,5 +1,7 @@
 // ─── Posh Bubbles — Utilities ───────────────────────────────────────────────
-// Placeholder file. Populate as the project grows.
+
+export { sortProducts, sortLabel, SORT_OPTIONS, DEFAULT_SORT } from './sort';
+export type { SortValue } from './sort';
 
 export { cn } from '@/lib/utils';
 
