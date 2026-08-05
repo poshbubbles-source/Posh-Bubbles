@@ -31,12 +31,12 @@ export default function Footer() {
 
       {/* ── Main footer body ─────────────────────────────────────── */}
       <div className="relative overflow-hidden bg-pb-ruby pb-lotus-watermark">
-        {/* Lotus left decoration */}
+        {/* Lotus right decoration — upright */}
         <div
           aria-hidden="true"
-          className="absolute left-0 bottom-0 w-48 sm:w-64 opacity-10 pointer-events-none select-none mix-blend-multiply"
+          className="absolute right-0 bottom-0 w-28 sm:w-36 opacity-[0.07] pointer-events-none select-none"
         >
-          <img src="/images/lotus.png" alt="" className="w-full h-auto scale-x-[-1]" />
+          <img src="/images/lotus.png" alt="" className="w-full h-auto" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-14 pb-10">

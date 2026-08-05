@@ -50,14 +50,14 @@ export default function TestimonialsSection() {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="relative overflow-hidden bg-pb-background py-16 sm:py-24 pb-logo-watermark-center"
+      className="relative overflow-hidden bg-pb-background py-16 sm:py-24 pb-lotus-watermark-center"
     >
-      {/* Logo watermark — centered background */}
+      {/* Lotus watermark — centered background, upright */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.05] mix-blend-multiply"
+        className="absolute inset-0 flex items-end justify-center pointer-events-none select-none opacity-[0.06] mix-blend-multiply"
       >
-        <img src="/images/logo.png" alt="" className="w-64 sm:w-80 h-auto" />
+        <img src="/images/lotus.png" alt="" className="w-36 sm:w-44 h-auto mb-0" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

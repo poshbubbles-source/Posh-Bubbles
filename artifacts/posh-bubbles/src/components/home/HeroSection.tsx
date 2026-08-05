@@ -13,20 +13,20 @@ export default function HeroSection() {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-pb-background min-h-[75vh] sm:min-h-[85vh] flex items-center"
     >
-      {/* Logo background decoration — right side */}
+      {/* Lotus background decoration — right side, upright */}
       <div
         aria-hidden="true"
-        className="absolute right-0 bottom-0 w-72 sm:w-96 lg:w-[480px] opacity-[0.08] pointer-events-none select-none mix-blend-multiply"
+        className="absolute right-0 bottom-0 w-36 sm:w-44 lg:w-52 opacity-[0.08] pointer-events-none select-none mix-blend-multiply"
       >
-        <img src="/images/logo.png" alt="" className="w-full h-auto" />
+        <img src="/images/lotus.png" alt="" className="w-full h-auto" />
       </div>
 
-      {/* Subtle logo — desktop left, top corner */}
+      {/* Lotus background decoration — left side, upright, desktop only */}
       <div
         aria-hidden="true"
-        className="absolute left-0 top-10 w-40 lg:w-56 opacity-[0.05] pointer-events-none select-none mix-blend-multiply hidden lg:block"
+        className="absolute left-0 top-8 w-28 lg:w-36 opacity-[0.06] pointer-events-none select-none mix-blend-multiply hidden lg:block"
       >
-        <img src="/images/logo.png" alt="" className="w-full h-auto" />
+        <img src="/images/lotus.png" alt="" className="w-full h-auto" />
       </div>
 
       <article className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-28 w-full">

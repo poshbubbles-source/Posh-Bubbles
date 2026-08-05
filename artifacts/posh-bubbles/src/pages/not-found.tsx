@@ -5,12 +5,12 @@ export default function NotFound() {
   return (
     <main className="min-h-[70vh] bg-pb-background flex items-center justify-center px-6">
       <div className="text-center max-w-md">
-        {/* Logo decoration */}
+        {/* Lotus decoration — upright */}
         <div
           aria-hidden="true"
-          className="mx-auto mb-6 w-20 h-20 opacity-10 mix-blend-multiply"
+          className="mx-auto mb-6 w-12 opacity-10 mix-blend-multiply"
         >
-          <img src="/images/logo.png" alt="" className="w-full h-auto" />
+          <img src="/images/lotus.png" alt="" className="w-full h-auto" />
         </div>
 
         <p className="font-serif text-8xl font-light text-pb-ruby/20 leading-none select-none">

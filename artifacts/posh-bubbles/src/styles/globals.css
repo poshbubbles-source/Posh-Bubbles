@@ -49,16 +49,15 @@ a {
 .pb-page-banner::after {
   content: '';
   position: absolute;
-  right: -3%;
-  bottom: -10%;
-  width: 240px;
-  height: 240px;
-  background-image: url('/images/logo.png');
+  right: -2%;
+  bottom: -8%;
+  width: 160px;
+  height: 260px;
+  background-image: url('/images/lotus.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.08;
-  mix-blend-mode: multiply;
+  opacity: 0.07;
   pointer-events: none;
   user-select: none;
 }

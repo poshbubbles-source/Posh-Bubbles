@@ -375,43 +375,43 @@
     letter-spacing: 0.1em;
   }
 
-  /* Logo background watermark — use on light sections */
-  .pb-logo-watermark {
+  /* Lotus background watermark — use on light sections */
+  .pb-lotus-watermark {
     position: relative;
     overflow: hidden;
   }
-  .pb-logo-watermark::after {
+  .pb-lotus-watermark::after {
     content: '';
     position: absolute;
-    right: -6%;
-    bottom: -8%;
-    width: 300px;
-    height: 300px;
-    background-image: url('/images/logo.png');
+    right: -4%;
+    bottom: -6%;
+    width: 180px;
+    height: 290px;
+    background-image: url('/images/lotus.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
-    opacity: 0.07;
+    opacity: 0.08;
     mix-blend-mode: multiply;
     pointer-events: none;
     user-select: none;
   }
 
-  /* Logo left watermark variant */
-  .pb-logo-watermark-left::after {
+  /* Lotus left watermark variant */
+  .pb-lotus-watermark-left::after {
     right: auto;
-    left: -6%;
-    bottom: -8%;
+    left: -4%;
+    bottom: -6%;
   }
 
-  /* Logo centered watermark variant */
-  .pb-logo-watermark-center::after {
+  /* Lotus centered watermark variant */
+  .pb-lotus-watermark-center::after {
     right: auto;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -8%;
-    opacity: 0.05;
-    width: 320px;
+    bottom: -6%;
+    opacity: 0.06;
+    width: 200px;
     height: 320px;
   }
 }
