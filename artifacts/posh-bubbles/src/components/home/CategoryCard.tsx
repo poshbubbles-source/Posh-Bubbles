@@ -1,12 +1,15 @@
 /**
  * CategoryCard
  *
- * Reusable card representing a single product category. Placeholder content only.
- * Structure inspired by premium skincare brand category navigation layouts:
- *   - Category image
- *   - Category name as a heading
- *   - Short descriptive placeholder text
- *   - "Shop Now" call-to-action link
+ * Responsive category card with a tall portrait image, serif title,
+ * short description, and animated Shop button.
+ *
+ * Visual direction inspired by Native (nativecos.com):
+ *   — image-first with a 4:5 portrait crop
+ *   — clean white card body with minimal typography
+ *   — image scales on hover; card lifts with a soft shadow
+ *
+ * All colours are Posh Bubbles design-system tokens.
  */
 
 interface CategoryCardProps {
@@ -22,49 +25,93 @@ export default function CategoryCard({ name, slug, description }: CategoryCardPr
   return (
     <article
       aria-label={`${name} category`}
-      className="group bg-pb-card rounded-2xl overflow-hidden shadow-card border border-pb-champagne-gold/10 hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 flex flex-col"
+      className={[
+        'group flex flex-col',
+        'bg-pb-card rounded-xl overflow-hidden',
+        'border border-pb-champagne-gold/12',
+        'shadow-[0_2px_12px_rgba(0,0,0,0.06)]',
+        'hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]',
+        'hover:-translate-y-1.5',
+        'transition-all duration-350 ease-out',
+        'will-change-transform',
+      ].join(' ')}
     >
-      {/* Category image */}
+      {/* ── Image area ──────────────────────────────────────────── */}
       <figure className="relative overflow-hidden">
-        <div className="aspect-square bg-pb-background-secondary flex items-center justify-center">
+        {/*
+          4:5 portrait aspect ratio — identical to Native's product tiles.
+          The placeholder background uses the brand ivory so empty state
+          still reads as intentional design.
+        */}
+        <div className="aspect-[4/5] bg-pb-background-secondary relative overflow-hidden">
           <img
-            src={`/placeholders/categories/${slug}.jpg`}
-            alt={`Placeholder — ${name} product category image`}
+            src={`/images/${slug}/${slug}-category.jpg`}
+            alt={`${name} product category`}
             width={400}
-            height={400}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            height={500}
+            className={[
+              'absolute inset-0 w-full h-full object-cover',
+              'group-hover:scale-[1.04] transition-transform duration-500 ease-out',
+            ].join(' ')}
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).style.display = 'none';
             }}
           />
+
+          {/* Gradient overlay — fades bottom of image into card body */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-pb-card/60 to-transparent pointer-events-none"
+          />
         </div>
         <figcaption className="sr-only">
-          Placeholder — representative image for the {name} category
+          Representative image for the {name} category
         </figcaption>
       </figure>
 
-      {/* Category details */}
-      <div className="flex flex-col flex-1 gap-3 p-5 sm:p-6">
-        <h3 className="font-serif text-xl font-semibold text-pb-text-primary tracking-wide">
+      {/* ── Card body ───────────────────────────────────────────── */}
+      <div className="flex flex-col flex-1 px-5 pt-5 pb-6 gap-3">
+
+        {/* Category name */}
+        <h3 className="font-serif text-lg sm:text-xl font-semibold text-pb-text-primary tracking-wide leading-snug">
           {name}
         </h3>
 
-        {/* Gold accent */}
-        <div className="w-8 h-px bg-pb-champagne-gold/50" />
+        {/* Gold rule */}
+        <div
+          aria-hidden="true"
+          className="w-7 h-px bg-pb-champagne-gold/60 group-hover:w-12 transition-all duration-300 ease-out"
+        />
 
-        <p className="font-sans text-sm text-pb-text-secondary leading-relaxed flex-1">
+        {/* Description */}
+        <p className="font-sans text-[0.8125rem] text-pb-text-secondary leading-relaxed flex-1">
           {description}
         </p>
 
         {/* Shop CTA */}
         <a
-          href={`/shop?category=${slug}`}
+          href={`/shop/${slug}`}
           aria-label={`Shop ${name}`}
-          className="mt-2 inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 bg-pb-ruby text-white text-xs font-semibold tracking-widest uppercase rounded-full hover:bg-pb-burgundy transition-all duration-200 shadow-card hover:shadow-soft"
+          className={[
+            'mt-1 inline-flex items-center justify-between',
+            'px-5 py-2.5 rounded-lg',
+            'bg-pb-ruby text-white',
+            'text-[0.6875rem] font-semibold tracking-[0.12em] uppercase',
+            'group/btn',
+            'hover:bg-pb-burgundy',
+            'transition-colors duration-200',
+          ].join(' ')}
         >
-          Shop Now
-          <span aria-hidden="true" className="text-pb-champagne-gold">→</span>
+          <span>Shop {name}</span>
+          {/* Arrow slides right on hover */}
+          <span
+            aria-hidden="true"
+            className="text-pb-champagne-gold ml-2 translate-x-0 group-hover/btn:translate-x-1 transition-transform duration-200"
+          >
+            →
+          </span>
         </a>
+
       </div>
     </article>
   );
