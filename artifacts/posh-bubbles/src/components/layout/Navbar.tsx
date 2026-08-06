@@ -36,18 +36,18 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-pb-card/95 backdrop-blur-md border-b border-pb-champagne-gold/20 shadow-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 sm:py-3">
+        <div className="flex items-center justify-between h-20 sm:h-24">
 
           {/* Logo */}
           <NavLink
             to="/"
             aria-label="Posh Bubbles home"
-            className="flex-shrink-0 transition-opacity duration-200 hover:opacity-90"
+            className="self-stretch flex items-center flex-shrink-0 transition-opacity duration-200 hover:opacity-90"
           >
             <img
               src="/images/logo.png"
               alt="Posh Bubbles"
-              className="h-14 sm:h-16 w-auto mix-blend-multiply"
+              className="h-full w-auto mix-blend-multiply"
             />
           </NavLink>
 
