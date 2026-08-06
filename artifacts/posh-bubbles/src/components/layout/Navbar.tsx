@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 
 interface NavItem {
   to: string;
@@ -29,6 +30,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { totals } = useCart();
   const cartCount = totals.itemCount;
+  const { items: wishlistItems } = useWishlist();
+  const wishlistCount = wishlistItems.length;
 
   return (
     <header className="sticky top-0 z-50 bg-pb-card/95 backdrop-blur-md border-b border-pb-champagne-gold/20 shadow-card">
@@ -74,22 +77,42 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Cart icon */}
-          <Link
-            to="/cart"
-            aria-label={cartCount > 0 ? `Cart, ${cartCount} items` : 'Cart'}
-            className="relative flex items-center justify-center w-10 h-10 text-pb-text-secondary hover:text-pb-ruby transition-colors duration-200"
-          >
-            <ShoppingBag size={22} aria-hidden="true" />
-            {cartCount > 0 && (
-              <span
-                aria-hidden="true"
-                className="absolute -top-0.5 -right-0.5 min-w-[1.1rem] h-[1.1rem] px-0.5 rounded-full bg-pb-ruby text-white font-sans text-[0.5rem] font-bold flex items-center justify-center leading-none"
-              >
-                {cartCount > 99 ? '99+' : cartCount}
-              </span>
-            )}
-          </Link>
+          {/* Icon group: Wishlist + Cart */}
+          <div className="flex items-center gap-1">
+            {/* Wishlist icon */}
+            <Link
+              to="/wishlist"
+              aria-label={wishlistCount > 0 ? `Wishlist, ${wishlistCount} items` : 'Wishlist'}
+              className="relative flex items-center justify-center w-10 h-10 text-pb-text-secondary hover:text-pb-ruby transition-colors duration-200"
+            >
+              <Heart size={20} aria-hidden="true" />
+              {wishlistCount > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-0.5 -right-0.5 min-w-[1.1rem] h-[1.1rem] px-0.5 rounded-full bg-pb-ruby text-white font-sans text-[0.5rem] font-bold flex items-center justify-center leading-none"
+                >
+                  {wishlistCount > 99 ? '99+' : wishlistCount}
+                </span>
+              )}
+            </Link>
+
+            {/* Cart icon */}
+            <Link
+              to="/cart"
+              aria-label={cartCount > 0 ? `Cart, ${cartCount} items` : 'Cart'}
+              className="relative flex items-center justify-center w-10 h-10 text-pb-text-secondary hover:text-pb-ruby transition-colors duration-200"
+            >
+              <ShoppingBag size={22} aria-hidden="true" />
+              {cartCount > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-0.5 -right-0.5 min-w-[1.1rem] h-[1.1rem] px-0.5 rounded-full bg-pb-ruby text-white font-sans text-[0.5rem] font-bold flex items-center justify-center leading-none"
+                >
+                  {cartCount > 99 ? '99+' : cartCount}
+                </span>
+              )}
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <button

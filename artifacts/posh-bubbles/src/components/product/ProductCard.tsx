@@ -12,8 +12,11 @@
 import { useState } from 'react';
 import { Heart, ShoppingCart, Zap, Star } from 'lucide-react';
 import BuyNowModal from './BuyNowModal';
+import { useWishlist } from '@/context/WishlistContext';
 
 export interface ProductCardProps {
+  /** Unique product identifier — used as wishlist key (falls back to `name`) */
+  id?: string;
   /** Path to the product image (relative to /public) */
   image: string;
   /** Product display name */
@@ -22,12 +25,14 @@ export interface ProductCardProps {
   description: string;
   /** Display price string, e.g. "$24.99" */
   price: string;
+  /** Price in cents for cart operations (e.g. 2499 = $24.99). Defaults to 0. */
+  priceInCents?: number;
+  /** Product category label stored in the wishlist */
+  category?: string;
   /** Numeric rating 0–5 (decimals supported) */
   rating: number;
   /** Total number of reviews */
   reviewCount: number;
-  /** Whether the product is in the wishlist (visual only) */
-  isWishlisted?: boolean;
   /** Whether the product is available to purchase */
   isAvailable?: boolean;
   /** Optional badge label, e.g. "New", "Best Seller" */
@@ -64,17 +69,22 @@ function StarRating({ rating, count }: { rating: number; count: number }) {
 }
 
 export default function ProductCard({
+  id,
   image,
   name,
   description,
   price,
+  priceInCents = 0,
+  category     = '',
   rating,
   reviewCount,
-  isWishlisted = false,
   isAvailable  = true,
   badge,
 }: ProductCardProps) {
   const [buyNowOpen, setBuyNowOpen] = useState(false);
+  const { toggleItem, isWishlisted } = useWishlist();
+  const itemId      = id ?? name;
+  const wishlisted  = isWishlisted(itemId);
 
   return (
     <>
@@ -136,8 +146,11 @@ export default function ProductCard({
         {/* Wishlist button — top right */}
         <button
           type="button"
-          aria-label={isWishlisted ? `Remove ${name} from wishlist` : `Add ${name} to wishlist`}
-          aria-pressed={isWishlisted}
+          aria-label={wishlisted ? `Remove ${name} from wishlist` : `Add ${name} to wishlist`}
+          aria-pressed={wishlisted}
+          onClick={() =>
+            toggleItem({ id: itemId, name, image, priceDisplay: price, priceInCents, category })
+          }
           className={[
             'absolute top-3 right-3 z-10',
             'w-8 h-8 rounded-full',
@@ -152,7 +165,7 @@ export default function ProductCard({
           <Heart
             size={15}
             className={
-              isWishlisted
+              wishlisted
                 ? 'fill-pb-ruby text-pb-ruby'
                 : 'fill-transparent text-pb-text-secondary group-hover:text-pb-ruby transition-colors duration-200'
             }

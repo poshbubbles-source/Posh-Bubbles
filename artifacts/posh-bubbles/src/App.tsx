@@ -5,6 +5,8 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 
 import RootLayout from '@/layouts/RootLayout';
 import { CartProvider } from '@/context/CartContext';
+import { WishlistProvider } from '@/context/WishlistContext';
+import Wishlist from '@/pages/Wishlist';
 
 // Top-level pages
 import Home from '@/pages/Home';
@@ -75,6 +77,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+      <WishlistProvider>
       <TooltipProvider>
         <BrowserRouter basename={basename}>
           <Routes>
@@ -87,6 +90,7 @@ export default function App() {
               <Route path="faq" element={<FAQ />} />
               <Route path="contact" element={<Contact />} />
               <Route path="cart" element={<Cart />} />
+              <Route path="wishlist" element={<Wishlist />} />
 
               {/* ── Skin Care ───────────────────────────────────────── */}
               <Route path="shop/skin-care" element={<SkinCare />} />
@@ -141,6 +145,7 @@ export default function App() {
         </BrowserRouter>
         <Toaster />
       </TooltipProvider>
+      </WishlistProvider>
       </CartProvider>
     </QueryClientProvider>
   );
