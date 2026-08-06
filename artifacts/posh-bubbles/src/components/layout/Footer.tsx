@@ -55,8 +55,8 @@ export default function Footer() {
                 <p className="font-serif text-xl font-semibold text-pb-champagne-gold tracking-wide">
                   Posh Bubbles
                 </p>
-                <p className="mt-1 text-sm text-white/70 leading-relaxed max-w-[200px]">
-                  Premium bath and beauty for the everyday ritual.
+                <p className="mt-1 text-sm text-pb-champagne-gold leading-relaxed max-w-[200px]">
+                  Handcrafted Organic Skin &amp; Hair Care for the everyday ritual.
                 </p>
               </div>
               {/* Gold ornamental line */}
